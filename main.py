@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 import time
@@ -32,13 +32,11 @@ while game_is_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
 
-#    collision with paddle
+    #    collision with paddle
     if (ball.distance(r_paddle) < 50 and ball.xcor() > 320) or (ball.distance(l_paddle) < 50 and ball.xcor() < -320):
         ball.boost()
         ball.bounce_x()
         print(ball.y_move, ball.x_move)
-
-
 
     if ball.xcor() > 400:
         scoreboard.l_point()
@@ -48,8 +46,5 @@ while game_is_on:
         scoreboard.r_point()
         scoreboard.update_scoreboard()
         ball.reset()
-
-
-
 
 screen.exitonclick()
